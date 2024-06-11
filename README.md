@@ -1,6 +1,6 @@
 Humanizer Plugin - 3D Character Creator for Godot 4  
 converted from MakeHuman and MPFB2 plugin for blender  
-download zip file from https://github.com/NitroxNova/humanizer/releases/tag/v1.0.0.beta and extract into your addons folder (make sure its just named 'humanizer')  
+download zip file from https://github.com/emberlightstudios/humanizer/releases/tag/v0.1.0.beta and extract into your addons folder (make sure its just named 'humanizer')  
 features and installation - https://www.youtube.com/watch?v=HcscAIpmVgE  
 
 FEATURES:  
@@ -25,13 +25,13 @@ rigged assets - https://www.youtube.com/watch?v=NMK_w39wKi0
 materials and overlays - https://www.youtube.com/watch?v=LnubU2OzvQA  
 adding custom shapekey targets - https://www.youtube.com/watch?v=scM3nRpdX20  
 stress testing & implications - https://www.youtube.com/watch?v=dtIaeQt59hs  
-in-game example menu - https://github.com/NitroxNova/Humanizer_Example  
   
-UPCOMING:  
-bake in pose (statues)  
+GOALS:  
+bake in pose (statues)  (Not possible in Godot currently)
 dismemberment  
 more material and overlay options  
 procedurally generated skin textures    
 compute shaders and visual shaders for faster everything (maybe)  
-bone poses for clothing (like high heals)  
+bone poses for clothing (like high heels)  
+and if you want to help support this project, you may donate at https://www.patreon.com/EmberlightStudios  
 
