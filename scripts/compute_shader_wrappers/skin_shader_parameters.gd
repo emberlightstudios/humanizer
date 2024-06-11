@@ -12,11 +12,12 @@ extends Resource
 ## A list of textures to be output by the shader
 @export var skin_textures: Array[String] = default_skin_textures()
 
+## Override this function to set material parameters other than textures
+func set_material_parameters() -> void: pass
 
 ## Gets a GPU_Multi uniform for aggregation of non-image shader parameters
 func get_uniform(binding) -> GPU_Multi:
-	var some_data = 0
-	return GPUUniform.new(some_data, 'some_uniform', binding)
+	return null
 
 ## Since we can't override member variables we have to point to intializers
 func default_skin_textures() -> Array[String]:

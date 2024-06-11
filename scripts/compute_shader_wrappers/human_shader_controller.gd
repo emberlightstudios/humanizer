@@ -39,8 +39,10 @@ func find_material() -> void:
 		material = mesh.mesh.surface_get_material(surf)
 	
 ## Generate the final texture maps to put on our skin material
-func generate_texture_maps(job: Dictionary) -> void:
-	print('generating texture maps')
+func update_material(job: Dictionary) -> void:
+	if shader_params.shader_file in [null, '']:
+		push_error('No shader file supplied')
+		return
 	if skin_compute == null:
 		skin_compute = ComputeWorker.new(shader_params.shader_file)
 	if true:#not skin_compute.initialized:
@@ -59,6 +61,7 @@ func generate_texture_maps(job: Dictionary) -> void:
 		skin_compute.set_uniform_data(shader_params.get_uniform(0).data, param_binding)
 	skin_compute.execute()
 	
+	shader_params.set_material_parameters()
 	for texture in shader_params.skin_textures:
 		if texture == 'albedo':
 			var albedo = skin_compute.get_uniform_data_by_alias(texture)
@@ -109,4 +112,4 @@ func smooth_uv_map_seams(job: Dictionary) -> void:
 	seam_compute.execute()
 	uv_map = seam_compute.get_uniform_data_by_alias('output_texture').duplicate()
 	seam_compute.destroy()
-	job.on_finished = self.generate_texture_maps
+	job.on_finished = self.update_material
